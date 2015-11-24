@@ -1,0 +1,22 @@
+{
+  "name": "timlinr",
+  "productName" : "timlinr",
+  "identifier": "com.example.timlinr",
+  "description": "",
+  "version": "0.1.0",
+  "author": "Ike Ku <dempfi@yahoo.com>",
+  "main": "browser.js",
+  "config": {
+    "target": "development"
+  },
+  "dependencies": {
+    "electron-localshortcut": "^0.6.0",
+    "eventemitter2": "^0.4.14",
+    "fs-jetpack": "^0.7.0",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "uuid": "^2.0.1"
+  }
+}

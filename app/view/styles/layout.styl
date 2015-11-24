@@ -1,0 +1,88 @@
+@require 'constants'
+
+.app
+  absolute left top right
+  bottom 0
+
+  .title-bar
+    absolute left top right
+    height 40px
+    z-index 1
+    padding-left 70px
+    +fullscreen()
+      padding-left 20px
+
+    .title
+      color red
+      font-weight 300
+      font-size 18px
+      line-height 40px
+      strong
+        font-weight 500
+
+  .days
+    absolute left top right
+    bottom 0
+
+    .day
+      height 100%
+      width (100 / 7)%
+      float left
+      padding-top 40px
+      &.-in-focus
+        background #FCFBFA
+        thin-border(lightgray, 'left')
+        thin-border(lightgray, 'right', true)
+        .date-title
+          color red
+          font-weight 600
+
+      .date-title
+        text-transform uppercase
+        font-size 12px
+        width 100%
+        height 20px
+        line-height 20px
+        padding 0 20px
+        position relative
+        margin-bottom 5px
+
+      .tasks
+        .task
+          font 12px/15px Roboto
+          padding 14px 10px 11px 20px
+          position relative
+          min-height 40px
+          transition color 200ms
+          &.-in-focus
+            box-shadow 0 0 0 1px red
+          &.-is-done
+            text-decoration line-through
+            // font-weight 400
+            color rgba(gray, .5)
+          input
+            absolute left top
+            width 100%; height auto
+            padding 14px 10px 11px 20px
+            font 12px/15px Roboto
+            color gray
+            outline none
+          .checkbox
+            absolute left 6px top 16px
+            width 10px; height 10px
+            border-radius 100%
+            box-shadow inset 0 0 0 1px #A6A6A6
+            background rgba(#A6A6A6, 0)
+            &:before
+              content ''
+              absolute left 2px top 11px
+              background url('imgs/tick.svg')
+              width 7px; height 6px
+              transition 200ms
+              opacity 0
+            &.-checked
+              background #A6A6A6
+              transition 200ms
+              &:before
+                top 2px
+                opacity 1

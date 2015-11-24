@@ -1,0 +1,25 @@
+red       = #F23041
+orange    = #FF8000
+green     = #669900
+gray      = #808080
+lightgray = rgba(#3A4A59, .1)
+
+fullscreen()
+  body.-fullscreen &
+    {block}
+
+thin-border(color = lightgray, dir = 'bottom', useBefore = false)
+  selector = useBefore ? ':before' : ':after'
+  position relative
+  &{selector}
+    box-sizing content-box
+    content ""
+    border-{dir} 1px color solid
+    if dir is 'top' or dir is 'bottom'
+      height 1px
+      transform scaleY(0.5)
+      absolute left dir right
+    if dir is 'left' or dir is 'right'
+      width 1px
+      transform scaleX(0.5)
+      absolute top dir bottom

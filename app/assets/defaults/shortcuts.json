@@ -1,0 +1,69 @@
+{
+  "new-task" : [
+    {
+      "accelerator" : "alt+up",
+      "description" : "add task before active task.",
+      "argument" : "-1"
+    },
+    {
+      "accelerator" : "alt+down",
+      "description" : "add task after active task.",
+      "argument" : "+1"
+    }
+  ],
+  "enter" : {
+    "accelerator" : "enter",
+    "description" : "edit active task."
+  },
+  "delete" : {
+    "accelerator" : "backspace",
+    "description" : "delete active task."
+  },
+  "toggle" : {
+    "accelerator" : "cmd+enter",
+    "description" : "toggle done-state of the active task."
+  },
+  "nav-task" : [
+    {
+      "accelerator" : "up",
+      "description" : "move to previous task in list.",
+      "argument" : "-1"
+    },
+    {
+      "accelerator" : "down",
+      "description" : "move to next task in list.",
+      "argument" : "+1"
+    }
+  ],
+  "cancel" : {
+    "accelerator" : "escape",
+    "description" : "prevent default from active process."
+  },
+  "nav" : [
+    {
+      "accelerator" : "right",
+      "description" : "navigate to next day.",
+      "argument" : "+1"
+    },
+    {
+      "accelerator" : "left",
+      "description" : "navigate to previous day.",
+      "argument" : "-1"
+    },
+    {
+      "accelerator" : "alt+right",
+      "description" : "navigate to next week.",
+      "argument" : "+7"
+    },
+    {
+      "accelerator" : "alt+left",
+      "description" : "navigate to previous week.",
+      "argument" : "-7"
+    },
+    {
+      "accelerator" : "alt+t",
+      "description" : "navigate to today.",
+      "argument" : "0"
+    }
+  ]
+}

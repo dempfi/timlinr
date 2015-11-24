@@ -1,0 +1,39 @@
+@require 'constants'
+global-reset()
+
+::-webkit-scrollbar
+  display none
+  width 0
+
+html
+  box-sizing border-box
+  font-size 13px
+  -webkit-font-smoothing subpixel-antialiased
+
+body
+  font-family 'Roboto Mono'
+
+#root
+  fixed left top right
+  bottom 0
+  color gray
+
+input
+  background transparent
+  border none
+  -webkit-font-smoothing subpixel-antialiased
+  font-family def-font
+
+*
+*:before
+*:after
+  box-sizing inherit
+
+a
+  text-decoration none
+  color inherit
+  cursor default
+
+button
+  cursor default
+  -webkit-font-smoothing subpixel-antialiased
