@@ -143,7 +143,7 @@ gulp.task('watch', function () {
     gulp.watch('app/**/*.js', ['bundle-watch']);
     gulp.watch(paths.copyFromAppDir, { cwd: 'app' }, ['copy-watch']);
     gulp.watch('app/**/*.coffee', ['coffee-watch']);
-    gulp.watch('app/**/*.stylus', ['stylus-watch']);
+    gulp.watch('app/**/*.styl', ['stylus-watch']);
 });
 
 

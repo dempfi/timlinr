@@ -8,36 +8,55 @@ class Actions
     @bindAllShortcuts()
 
   unbindNav : ->
-    accs = ['right', 'left', 'up', 'down', 'alt+left', 'alt+right', 'backspace']
-    _.each accs, shortcuts.remove
+    _.each state.get('shortcuts'), (sh) ->
+      shortcuts.remove(sh.accelerator) if sh.input
 
   bindAllShortcuts : ->
-    _.each state.get('shortcuts'), (sh, key) =>
-      if _.isArray(sh) then _.each sh, @addShortcut.bind @, key
-      else @addShortcut key, sh
-
-  addShortcut : (key, sh) ->
-    method = "on#{_.capitalize _.camelCase(key)}"
-    if @[method]
+    _.each state.get('shortcuts'), (sh) =>
+      method = "on#{_.capitalize _.camelCase(sh.key)}"
       shortcuts.add sh.accelerator, @[method].bind @, sh.argument
 
   saveContent : (c) ->
     @_contentInEdit = c
 
+  onShortcuts : ->
+    state.set 'showShortcuts', !state.get 'showShortcuts'
+
+  onCut : ->
+    @_taskToCopy = state.get 'activeTask'
+    state.remove()
+
+  onCopy : ->
+    @_taskToCopy = state.get 'activeTask'
+
+  onPaste : ->
+    date = state.get 'activeDate'
+    task = state.get 'activeTask'
+    tasks = state.get(['dates', date]) or []
+    return unless @_taskToCopy
+    i = tasks.indexOf(task) or 0
+    state.add i, state.get ['tasks', @_taskToCopy]
+    state.set 'inEdit', null
+
   onNewTask : (i) ->
-    @onEnter() if state.get 'inEdit' #save task in editinion
+    @onStopEditing() if state.get 'inEdit' #save task in editinion
     state.add Number i
     @unbindNav()
 
-  onEnter : ->
+  onStartEditing : ->
+    state.set 'inEdit', state.get 'activeTask'
+    @unbindNav()
+    @_contentInEdit = ""
+
+  onStopEditing : ->
     if state.get 'inEdit'
       state.update(content : @_contentInEdit) if @_contentInEdit
       state.set 'inEdit', null
       @bindAllShortcuts()
+      @_contentInEdit = ""
     else
-      state.set 'inEdit', state.get 'activeTask'
-      @unbindNav()
-    @_contentInEdit = ""
+      @onNewTask(1)
+
 
   onDelete : ->
     state.remove()

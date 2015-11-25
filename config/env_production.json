@@ -1,4 +1,4 @@
 {
-  "name": "production",
+  "devTools": false,
   "description": "Add here any environment specific stuff you like."
 }

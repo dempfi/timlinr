@@ -3,6 +3,46 @@
 .app
   absolute left top right
   bottom 0
+  .shortcuts
+    absolute left 50% top 50%
+    width 740px; margin-left -370px
+    // height 360px
+    margin-top -200px
+    background rgba(white, .8)
+    box-shadow 0 0 0 1px rgba(lightgray, .05)
+    z-index 9999
+    border-radius 10px
+    padding 20px
+    transition .2s
+    li.shortcut
+      width 49%
+      margin-right 2%
+      display inline
+      float left
+      height 40px
+      border-bottom 1px solid lightgray
+      padding-top 13px
+      &:nth-last-of-type(-n+2)
+        border none
+      &:nth-child(even)
+        margin 0
+      .accelerator
+        font-weight 300
+        color red
+        font-size 11px
+        display inline-block
+        width 72px
+        span
+          background white
+          border-radius 3px
+          box-shadow 0 0 0 1px rgba(lightgray, .2), 0 1px 3px lightgray
+          padding 4px 6px
+
+      .description
+        display inline-block
+        margin-left 10px
+        font-size 13px
+        font-family Roboto
 
   .title-bar
     absolute left top right
@@ -29,6 +69,7 @@
       width (100 / 7)%
       float left
       padding-top 40px
+      position relative
       &.-in-focus
         background #FCFBFA
         thin-border(lightgray, 'left')
@@ -48,6 +89,9 @@
         margin-bottom 5px
 
       .tasks
+        absolute left top 65px right
+        bottom 0
+        overflow auto
         .task
           font 12px/15px Roboto
           padding 14px 10px 11px 20px
@@ -55,11 +99,12 @@
           min-height 40px
           transition color 200ms
           &.-in-focus
-            box-shadow 0 0 0 1px red
+            box-shadow inset 0 0 0 1px rgba(red, .3)
           &.-is-done
             text-decoration line-through
-            // font-weight 400
             color rgba(gray, .5)
+          &.-in-edit
+            box-shadow inset 0 0 0 1px red, inset 0 2px 5px rgba(red, .3)
           input
             absolute left top
             width 100%; height auto

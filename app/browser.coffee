@@ -1,6 +1,7 @@
 app           = require 'app'
 BrowserWindow = require 'browser-window'
 store         = require './helpers/store'
+env           = require './helpers/env'
 _             = require 'lodash'
 
 state = store.load('window') or
@@ -17,7 +18,7 @@ app.on 'ready', ->
   if state.isMaximized
     win.maximize()
 
-  # win.openDevTools()
+  win.openDevTools() if env.get('devTools')
 
   win.loadUrl "file://#{__dirname}/index.html"
 

@@ -2,11 +2,13 @@ React     = require 'react'
 moment    = require 'moment'
 Component = require './component'
 TitleBar  = require './title-bar'
+Shortcuts = require './shortcuts'
 Day       = require './day'
 {div}     = React.DOM
 
 module.exports = Component ({date}) ->
   div className : 'app',
+    Shortcuts()
     TitleBar({date})
     div className : 'days',
       getDays(date).map renderDay

@@ -1,69 +1,113 @@
-{
-  "new-task" : [
-    {
-      "accelerator" : "alt+up",
-      "description" : "add task before active task.",
-      "argument" : "-1"
-    },
-    {
-      "accelerator" : "alt+down",
-      "description" : "add task after active task.",
-      "argument" : "+1"
-    }
-  ],
-  "enter" : {
+[
+  {
+    "key" : "new-task",
+    "accelerator" : "alt+up",
+    "description" : "Add task before active task.",
+    "argument" : "-1"
+  },
+  {
+    "key" : "new-task",
+    "accelerator" : "alt+down",
+    "description" : "Add task after active task.",
+    "argument" : "+1"
+  },
+  {
+    "key" : "start-editing",
+    "accelerator" : "space",
+    "description" : "Edit active task.",
+    "input" : true
+  },
+  {
+    "key" : "stop-editing",
     "accelerator" : "enter",
-    "description" : "edit active task."
+    "description" : "Save edited task or create new task."
   },
-  "delete" : {
+  {
+    "key" : "delete",
     "accelerator" : "backspace",
-    "description" : "delete active task."
+    "description" : "Delete active task.",
+    "input" : true
   },
-  "toggle" : {
+  {
+    "key" : "toggle",
     "accelerator" : "cmd+enter",
-    "description" : "toggle done-state of the active task."
+    "description" : "Toggle completion of the active task."
   },
-  "nav-task" : [
-    {
-      "accelerator" : "up",
-      "description" : "move to previous task in list.",
-      "argument" : "-1"
-    },
-    {
-      "accelerator" : "down",
-      "description" : "move to next task in list.",
-      "argument" : "+1"
-    }
-  ],
-  "cancel" : {
+  {
+    "key" : "copy",
+    "accelerator" : "cmd+c",
+    "description" : "Copy task.",
+    "input" : true
+  },
+  {
+    "key" : "cut",
+    "accelerator" : "cmd+x",
+    "description" : "Cut task.",
+    "input" : true
+  },
+  {
+    "key" : "paste",
+    "accelerator" : "cmd+v",
+    "description" : "Paste task.",
+    "input" : true
+  },
+  {
+    "key" : "nav-task",
+    "accelerator" : "up",
+    "description" : "Move to previous task in list.",
+    "argument" : "-1",
+    "input" : true
+  },
+  {
+    "key" : "nav-task",
+    "accelerator" : "down",
+    "description" : "Move to next task in list.",
+    "argument" : "+1",
+    "input" : true
+  },
+  {
+    "key" : "cancel",
     "accelerator" : "escape",
-    "description" : "prevent default from active process."
+    "description" : "Stop editing with losing intered."
   },
-  "nav" : [
-    {
-      "accelerator" : "right",
-      "description" : "navigate to next day.",
-      "argument" : "+1"
-    },
-    {
-      "accelerator" : "left",
-      "description" : "navigate to previous day.",
-      "argument" : "-1"
-    },
-    {
-      "accelerator" : "alt+right",
-      "description" : "navigate to next week.",
-      "argument" : "+7"
-    },
-    {
-      "accelerator" : "alt+left",
-      "description" : "navigate to previous week.",
-      "argument" : "-7"
-    },
-    {
-      "accelerator" : "alt+t",
-      "description" : "navigate to today.",
-      "argument" : "0"
-    }
-  ]
-}
+  {
+    "key" : "nav",
+    "accelerator" : "right",
+    "description" : "Navigate to next day.",
+    "argument" : "+1",
+    "input" : true
+  },
+  {
+    "key" : "nav",
+    "accelerator" : "left",
+    "description" : "Navigate to previous day.",
+    "argument" : "-1",
+    "input" : true
+  },
+  {
+    "key" : "nav",
+    "accelerator" : "alt+right",
+    "description" : "Navigate to next week.",
+    "argument" : "+7",
+    "input" : true
+  },
+  {
+    "key" : "nav",
+    "accelerator" : "alt+left",
+    "description" : "Navigate to previous week.",
+    "argument" : "-7",
+    "input" : true
+  },
+  {
+    "key" : "nav",
+    "accelerator" : "alt+t",
+    "description" : "Navigate to today.",
+    "argument" : "0"
+  },
+  {
+    "key" : "shortcuts",
+    "accelerator" : "1",
+    "description" : "Toggle shortcuts view.",
+    "input" : true
+  }
+]

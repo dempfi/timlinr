@@ -12,9 +12,10 @@ module.exports = Component ({id}) ->
   isActive  = state.get('activeTask') is id
   f         = '-in-focus' if isActive
   d         = '-is-done' if task.isDone
-  li className : "task #{f} #{d}",
+  e         = '-in-edit' if isEditing
+  li className : "task #{f} #{d} #{e}",
     Checker(checked : task.isDone)
-    if not isEditing then task.content
+    if not isEditing then task.content or ' '
     else Field
       value    : task.content
       onChange : actions.saveContent.bind actions

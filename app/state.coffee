@@ -10,14 +10,18 @@ defs    = fs.cwd "#{__dirname}/defaults"
 class State
   constructor : ->
     _.extend @, emitter.prototype
-    @state = store.load('state') or
-    # @state =
+    state = store.load('state')
+    state ?=
+    # state =
       tasks      : {}
       dates      : {}
-      shortcuts  : defs.read 'shortcuts.json', 'json'
       activeDate : moment().format 'YYYY-MM-DD'
       activeTask : null
-      inEdit     : null
+    @state = _.extend state,
+      inEdit        : null
+      showShortcuts : false
+      shortcuts     : defs.read 'shortcuts.json', 'json'
+
 
   get : (path) ->
     _.get(@state, path) or null
@@ -29,7 +33,8 @@ class State
     @_set path, v
     @inform()
 
-  add : (place = 0) ->
+  add : (place = 0, task) ->
+    task     = _.extend content : '', isDone : false, task
     place    = 0 if place < 0
     id       = uuid.v1()
     day      = @get('activeDate')
@@ -39,9 +44,7 @@ class State
     @_set 'activeTask', id
     @_set 'inEdit', id
     @_set ['dates', day], dayTasks
-    @_set ['tasks', id],
-      content : ''
-      isDone  : false
+    @_set ['tasks', id], task
     @inform()
 
   update : (obj) ->
